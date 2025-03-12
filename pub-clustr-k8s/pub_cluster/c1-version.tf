@@ -1,5 +1,3 @@
-
-# terraform settings block or configuration block or terraform block
 terraform {
   required_version = "~> 1.10"
   required_providers {
@@ -8,13 +6,17 @@ terraform {
       version = "~> 6.21.0"
     }
   }
+
+  backend "gcs" {
+    bucket = "terraform-backend-serv-test"
+    prefix = "dev/gke-cluster-public"
+  }
+
 }
 
-
-# provider block
+# provider 
 
 provider "google" {
   project = var.gcp_project
-  region  = var.gcp_region
+  region  = var.gcp_region1
 }
-
