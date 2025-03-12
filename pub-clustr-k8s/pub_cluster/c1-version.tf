@@ -3,7 +3,7 @@ terraform {
   required_providers {
     google = {
       source  = "hashicorp/google"
-      version = "~> 6.21.0"
+      version = ">= 6.20.0, < 7.0.0"
     }
   }
 
@@ -11,10 +11,9 @@ terraform {
     bucket = "terraform-backend-serv-test"
     prefix = "dev/gke-cluster-public"
   }
-
 }
 
-# provider 
+# provider
 
 provider "google" {
   project = var.gcp_project
